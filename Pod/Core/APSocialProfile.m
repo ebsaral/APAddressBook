@@ -60,4 +60,49 @@
     }
 }
 
+#pragma mark - helper
+
+- (NSDictionary *) serialize {
+    
+    NSString *serializedSocialNetwork;
+    NSString *serializedUsername = @"";
+    NSString *serializedUserIdentifier = @"";
+    NSString *serializedUrl = @"";
+    
+    switch (_socialNetwork) {
+            
+        case APSocialNetworkFacebook:
+            serializedSocialNetwork = @"facebook";
+            break;
+        case APSocialNetworkTwitter:
+            serializedSocialNetwork = @"twitter";
+            break;
+        case APSocialNetworkLinkedIn:
+            serializedSocialNetwork = @"linkedin";
+            break;
+        default:
+            serializedSocialNetwork = @"unknown";
+            break;
+    }
+    
+    if (_username != nil) {
+        serializedUsername = _username;
+    }
+    
+    if (_userIdentifier != nil) {
+        userIdentifier = _userIdentifier;
+    }
+    
+    if (_url != nil && _url.absoluteString != nil) {
+        serializedUrl = _url.absoluteString;
+    }
+    
+    NSDictionary *result = @{@"social_network"  : serializedSocialNetwork,
+                             @"username"        : serializedUsername,
+                             @"user_identifier" : serializedUserIdentifier,
+                             @"url"             : serializedUrl }
+
+    return result;
+}
+
 @end

@@ -24,5 +24,6 @@ typedef NS_ENUM(NSUInteger, APSocialNetworkType)
 @property (nonatomic, readonly) NSURL *url;
 
 - (instancetype)initWithSocialDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *) serialize;
 
 @end
