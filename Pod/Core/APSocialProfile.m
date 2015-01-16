@@ -90,7 +90,7 @@
     }
     
     if (_userIdentifier != nil) {
-        userIdentifier = _userIdentifier;
+        serializedUserIdentifier = _userIdentifier;
     }
     
     if (_url != nil && _url.absoluteString != nil) {
